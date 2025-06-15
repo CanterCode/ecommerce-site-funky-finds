@@ -4,7 +4,7 @@ import { BsCart3 } from 'react-icons/bs';
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="light" expand="lg" fixed="top" className="w-100 shadow-sm">
+    <Navbar bg="light" expand="lg" className="w-100 shadow-sm px-3">
         <Navbar.Brand as={Link} to="/">
           E-Commerce
         </Navbar.Brand>

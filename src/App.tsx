@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="container">
+      <main className="container flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ViewProducts />} />
