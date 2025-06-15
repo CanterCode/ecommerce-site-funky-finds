@@ -1,8 +1,13 @@
 const Cart = () => {
   return (
-    <div className="container">
-      <h1>Your Cart</h1>
-      <p>Items you added to your cart will show here.</p>
+    <div className="container justify-content-center align-items-center text-center pt-5">
+      
+        <h1>Your Shopping Cart</h1>
+      
+      {/* PRODUCTS WILL GO HERE */}
+
+        <button className="btn btn-success mt-5">Checkout</button>
+
     </div>
   );
 };

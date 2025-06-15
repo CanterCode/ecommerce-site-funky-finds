@@ -1,19 +1,14 @@
+import Products from "../reactQuery/Products";
+
 const ViewProducts = () => {
   return (
-    <div>
-      
-      <span className="container justify-content-center align-items-center text-center">
-        <h1>Current Products</h1>
-        <h5>View by Category</h5>
-      
-      </span>
+    <div className="container justify-content-center align-items-center text-center pt-5">
+      <h1>Current Products</h1>
 
-      <span>
-        
-      </span>
-    
-    
+      <h5>View by Category</h5>
 
+      <Products />
+      
     </div>
   );
 };
