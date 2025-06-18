@@ -5,8 +5,17 @@ import ViewProducts from "./pages/ViewProducts";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import { Container } from "react-bootstrap";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "./redux/Store";
 
 function App() {
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   return (
     <>
       <Navbar />
