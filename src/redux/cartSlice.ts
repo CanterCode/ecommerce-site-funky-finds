@@ -9,7 +9,7 @@ interface CartItem extends Product {
 interface CartState {
   items: CartItem[];
 }
-const savedCart = sessionStorage.getItem("caart");
+const savedCart = sessionStorage.getItem("cart");
 const parsedCart = savedCart ? JSON.parse(savedCart) : [];
 
 const initialState: CartState = {
