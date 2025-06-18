@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Container className="container flex-grow-1 mb-">
+      <Container className="container flex-grow-1 mt-5 pt-3">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ViewProducts />} />

@@ -8,9 +8,10 @@ import type { RootState } from "../redux/Store";
 const NavigationBar = () => {
   const navigate = useNavigate();
   const {items} = useSelector((state: RootState) => state.cart);
+  const totalQuantity = items.reduce((sum, item) => sum +item.quantity, 0)
 
   return (
-    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
+    <NavbarBs fixed="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
           <Navbar.Brand as={Link} to="/">
@@ -45,7 +46,7 @@ const NavigationBar = () => {
               right: 0,
               transform: "translate(25%, 25%)",
             }}
-          >{items.length}</div>
+          >{totalQuantity}</div>
         </Button>
       </Container>
     </NavbarBs>
