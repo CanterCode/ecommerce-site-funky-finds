@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import type { Product } from "./Product";
+import type { Product } from "./ProductInterface";
 import ProductCard from "../components/ProductCard";
 
 const fetchProducts = async (): Promise<Product[]> => {

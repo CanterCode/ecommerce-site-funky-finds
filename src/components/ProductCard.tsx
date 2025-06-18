@@ -1,14 +1,23 @@
 import { Card, Button } from "react-bootstrap";
-import type { Product } from "../reactQuery/Product";
+import type { Product } from "../reactQuery/ProductInterface";
 import { useState } from "react";
+import type { RootState } from "../redux/Store";
+import { useDispatch, useSelector } from "react-redux";
+import {addItem, increaseQuantity, decreaseQuantity, removeFromCart} from "../redux/cartSlice";
 
 type Props = {
   product: Product;
   quantity?: number;
 };
 
-const ProductCard = ({ product, quantity = 0 }: Props) => {
+const ProductCard = ({ product }: Props) => {
   const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state: RootState) =>
+    state.cart.items.find((item) => item.id === product.id)
+  );
+  const quantity = cartItem?.quantity || 0;
+
 
   const toggleDescription = () => setExpanded((prev) => !prev);
 
@@ -57,7 +66,7 @@ const ProductCard = ({ product, quantity = 0 }: Props) => {
 
         <div className="mt-3">
           {quantity === 0 ? (
-            <Button variant="primary" className="w-100">
+            <Button variant="primary" className="w-100" onClick={() => dispatch(addItem(product))}>
               + Add to Cart
             </Button>
           ) : (
@@ -69,13 +78,13 @@ const ProductCard = ({ product, quantity = 0 }: Props) => {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button>-</Button>
+                <Button onClick={() => dispatch(decreaseQuantity(product.id))}>-</Button>
                 <div>
                   <span className="fs-2">{quantity}</span> in cart
                 </div>
-                <Button>+</Button>
+                <Button onClick={() => dispatch(increaseQuantity(product.id))}>+</Button>
               </div>
-              <Button variant="danger" size="sm">
+              <Button variant="danger" size="sm" onClick={() => dispatch(removeFromCart(product.id))}>
                 Remove
               </Button>
             </div>

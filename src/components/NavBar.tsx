@@ -2,9 +2,13 @@ import { Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/Store";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const {items} = useSelector((state: RootState) => state.cart);
+
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -41,7 +45,7 @@ const NavigationBar = () => {
               right: 0,
               transform: "translate(25%, 25%)",
             }}
-          ></div>
+          >{items.length}</div>
         </Button>
       </Container>
     </NavbarBs>
