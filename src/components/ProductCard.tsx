@@ -71,7 +71,7 @@ const ProductCard = ({ product, quantity = 0 }: Props) => {
               >
                 <Button>-</Button>
                 <div>
-                  <span className="fs-3">{quantity}</span> in cart
+                  <span className="fs-2">{quantity}</span> in cart
                 </div>
                 <Button>+</Button>
               </div>

@@ -1,9 +1,10 @@
 import { Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -16,6 +17,7 @@ const NavigationBar = () => {
           </Nav.Link>
         </Nav>
         <Button
+          onClick={() => navigate("/cart")}
           style={{ width: "3rem", height: "3rem", position: "relative" }}
           variant="outline-primary"
           className="rounded-circle"
@@ -29,18 +31,17 @@ const NavigationBar = () => {
           </svg>
 
           <div
-             className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-             style={{
-            color: "white",
+            className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+            style={{
+              color: "white",
               width: "1.2rem",
-             height: "1.2rem",
-               position: "absolute",
-               bottom: 0,
+              height: "1.2rem",
+              position: "absolute",
+              bottom: 0,
               right: 0,
-           transform: "translate(25%, 25%)",
-             }}
-             >
-            </div>
+              transform: "translate(25%, 25%)",
+            }}
+          ></div>
         </Button>
       </Container>
     </NavbarBs>
