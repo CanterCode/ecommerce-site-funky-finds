@@ -11,8 +11,8 @@ const NavigationBar = () => {
   const totalQuantity = items.reduce((sum, item) => sum +item.quantity, 0)
 
   return (
-    <NavbarBs fixed="top" className="bg-white shadow-sm mb-3">
-      <Container>
+    <NavbarBs fixed="top" className="bg-white shadow-sm mb-3 px-4">
+      <Container fluid>
         <Nav className="me-auto">
           <Navbar.Brand as={Link} to="/">
             E-Commerce
