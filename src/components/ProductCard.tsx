@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { RootState } from "../redux/Store";
 import { useDispatch, useSelector } from "react-redux";
 import {addItem, increaseQuantity, decreaseQuantity, removeFromCart} from "../redux/cartSlice";
+import "../css/productCard.css"
 
 type Props = {
   product: Product;
@@ -27,7 +28,7 @@ const ProductCard = ({ product }: Props) => {
       (product.description.length > 80 ? "..." : "");
 
   return (
-    <Card className="h-100 shadow-sm">
+    <Card className="h-100 shadow-sm border-0 product-card">
       <Card.Img
         variant="top"
         src={product.image}
@@ -78,11 +79,11 @@ const ProductCard = ({ product }: Props) => {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button onClick={() => dispatch(decreaseQuantity(product.id))}>-</Button>
+                <Button size="sm" onClick={() => dispatch(decreaseQuantity(product.id))}>-</Button>
                 <div>
                   <span className="fs-2">{quantity}</span> in cart
                 </div>
-                <Button onClick={() => dispatch(increaseQuantity(product.id))}>+</Button>
+                <Button size="sm" onClick={() => dispatch(increaseQuantity(product.id))}>+</Button>
               </div>
               <Button variant="danger" size="sm" onClick={() => dispatch(removeFromCart(product.id))}>
                 Remove

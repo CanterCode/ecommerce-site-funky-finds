@@ -5,9 +5,9 @@ import { Container } from "react-bootstrap";
 const HomePage = () => {
   return (
     <Container fluid>
-      <div className=" home-hero d-flex justify-content-center align-items-center text-center px-0">
+      <div className=" home-hero d-flex justify-content-center align-items-center text-center px-0 mt-5">
         <div className="hero-content">
-          <h1 className="display-4">Welcome to the Funky Shop</h1>
+          <h1 className="display-4">Welcome to Josh's Funky Shop</h1>
           <h3 className="lead">
             Explore our curated products and enjoy a bold shopping experience!
           </h3>
