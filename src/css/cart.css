@@ -59,3 +59,25 @@
 .cart-item-card:hover {
   transform: translateY(-2px);
 }
+
+.funky-modal .modal-content {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.funky-modal-header {
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  color: white;
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.funky-modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-body p {
+  margin-bottom: 0.8rem;
+}
