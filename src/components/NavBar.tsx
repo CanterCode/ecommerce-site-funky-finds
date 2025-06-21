@@ -7,20 +7,31 @@ import type { RootState } from "../redux/Store";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const {items} = useSelector((state: RootState) => state.cart);
-  const totalQuantity = items.reduce((sum, item) => sum +item.quantity, 0)
+  const { items } = useSelector((state: RootState) => state.cart);
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <NavbarBs fixed="top" className="bg-white shadow-sm mb-3 px-4">
       <Container fluid>
         <Nav className="me-auto">
           <Navbar.Brand as={Link} to="/">
-            E-Commerce
+            Home Page
           </Navbar.Brand>
           <Nav.Link to="/products" as={NavLink}>
             View Products
           </Nav.Link>
+          <Nav.Item>
+            <a
+              href="https://github.com/CanterCode/ecommerce-site-funky-finds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link text-muted d-flex align-items-center"
+            >
+              <i className="bi bi-github me-1"></i>GitHub Repo
+            </a>
+          </Nav.Item>
         </Nav>
+
         <Button
           onClick={() => navigate("/cart")}
           style={{ width: "3rem", height: "3rem", position: "relative" }}
@@ -46,7 +57,9 @@ const NavigationBar = () => {
               right: 0,
               transform: "translate(25%, 25%)",
             }}
-          >{totalQuantity}</div>
+          >
+            {totalQuantity}
+          </div>
         </Button>
       </Container>
     </NavbarBs>

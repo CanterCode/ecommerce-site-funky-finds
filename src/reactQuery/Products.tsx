@@ -43,17 +43,35 @@ const ProductsPage = () => {
     queryFn: () => fetchProducts(selectedCategory),
   });
 
-  if (loadingCategories || loadingProducts) return <div>Loading...</div>;
+  if (loadingCategories || loadingProducts) {
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ minHeight: "300px" }}
+      >
+        <div
+          className="spinner-border text-primary"
+          role="status"
+          style={{ width: "4rem", height: "4rem" }}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   if (errorCategories || errorProducts) return <div>Error loading data.</div>;
 
   return (
     <div className="container">
-      <CategoryDropdown
-        categories={categories}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-      <div className="row">
+      <div className="category-dropdown-wrapper mb-4 pb-1">
+        <CategoryDropdown
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
+      <div className="row g-4">
         {products.length === 0 ? (
           <p>No products found for this category.</p>
         ) : (

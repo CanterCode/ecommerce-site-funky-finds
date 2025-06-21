@@ -16,15 +16,19 @@ function App() {
   }, [cartItems]);
 
   return (
-    <>
+    <div className="app-wrapper d-flex flex-column min-vh-100">
       <Navbar />
+
+      <main className="flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ViewProducts />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

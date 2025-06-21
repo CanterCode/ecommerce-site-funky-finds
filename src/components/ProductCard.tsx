@@ -3,8 +3,13 @@ import type { Product } from "../reactQuery/ProductInterface";
 import { useState } from "react";
 import type { RootState } from "../redux/Store";
 import { useDispatch, useSelector } from "react-redux";
-import {addItem, increaseQuantity, decreaseQuantity, removeFromCart} from "../redux/cartSlice";
-import "../css/productCard.css"
+import {
+  addItem,
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+} from "../redux/cartSlice";
+import "../css/products.css";
 
 type Props = {
   product: Product;
@@ -19,7 +24,6 @@ const ProductCard = ({ product }: Props) => {
   );
   const quantity = cartItem?.quantity || 0;
 
-
   const toggleDescription = () => setExpanded((prev) => !prev);
 
   const displayedDescription = expanded
@@ -28,13 +32,10 @@ const ProductCard = ({ product }: Props) => {
       (product.description.length > 80 ? "..." : "");
 
   return (
-    <Card className="h-100 shadow-sm border-0 product-card">
-      <Card.Img
-        variant="top"
-        src={product.image}
-        alt={product.title}
-        style={{ objectFit: "cover", height: "180px" }}
-      />
+    <Card className="h-100 shadow-sm border-0 product-card py-3">
+      <div className="product-img-wrapper">
+        <img src={product.image} alt={product.title} className="product-img" />
+      </div>
       <Card.Body className="d-flex flex-column">
         <Card.Title>
           {product.title.split(" ").slice(0, 5).join(" ")}
@@ -67,7 +68,11 @@ const ProductCard = ({ product }: Props) => {
 
         <div className="mt-3">
           {quantity === 0 ? (
-            <Button variant="primary" className="w-100" onClick={() => dispatch(addItem(product))}>
+            <Button
+              variant="primary"
+              className="w-100"
+              onClick={() => dispatch(addItem(product))}
+            >
               + Add to Cart
             </Button>
           ) : (
@@ -79,13 +84,27 @@ const ProductCard = ({ product }: Props) => {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button size="sm" onClick={() => dispatch(decreaseQuantity(product.id))}>-</Button>
+                <Button
+                  size="sm"
+                  onClick={() => dispatch(decreaseQuantity(product.id))}
+                >
+                  -
+                </Button>
                 <div>
                   <span className="fs-2">{quantity}</span> in cart
                 </div>
-                <Button size="sm" onClick={() => dispatch(increaseQuantity(product.id))}>+</Button>
+                <Button
+                  size="sm"
+                  onClick={() => dispatch(increaseQuantity(product.id))}
+                >
+                  +
+                </Button>
               </div>
-              <Button variant="danger" size="sm" onClick={() => dispatch(removeFromCart(product.id))}>
+              <Button
+                variant="danger"
+                size="sm"
+                onClick={() => dispatch(removeFromCart(product.id))}
+              >
                 Remove
               </Button>
             </div>
