@@ -26,15 +26,11 @@ This project is part of my journey with the **Coding Temple Software Engineering
 2. Install the dependencies:
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
 3. Start the dev server:
     ```bash
     npm run dev
-    # or
-    yarn dev
     ```
 
 4. Open your browser to the URL shown (usually http://localhost:5173).
