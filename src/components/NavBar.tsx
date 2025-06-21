@@ -1,4 +1,3 @@
-import { Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -11,26 +10,36 @@ const NavigationBar = () => {
   const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <NavbarBs fixed="top" className="bg-white shadow-sm mb-3 px-4">
-      <Container fluid>
-        <Nav className="me-auto">
-          <Navbar.Brand as={Link} to="/">
+    <NavbarBs fixed="top" expand="md" className="bg-white shadow-sm mb-3 px-4">
+      <Container
+        fluid
+        className="d-flex align-items-center justify-content-between"
+      >
+        <div className="d-flex align-items-center">
+          <NavbarBs.Brand as={Link} to="/">
             Home Page
-          </Navbar.Brand>
-          <Nav.Link to="/products" as={NavLink}>
-            View Products
-          </Nav.Link>
-          <Nav.Item>
-            <a
-              href="https://github.com/CanterCode/ecommerce-site-funky-finds"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link text-muted d-flex align-items-center"
-            >
-              <i className="bi bi-github me-1"></i>GitHub Repo
-            </a>
-          </Nav.Item>
-        </Nav>
+          </NavbarBs.Brand>
+
+          <NavbarBs.Toggle aria-controls="navbar-nav" className="ms-2" />
+        </div>
+
+        <NavbarBs.Collapse id="navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link to="/products" as={NavLink}>
+              View Products
+            </Nav.Link>
+            <Nav.Item>
+              <a
+                href="https://github.com/CanterCode/ecommerce-site-funky-finds"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link text-muted d-flex align-items-center"
+              >
+                <i className="bi bi-github me-1"></i>GitHub Repo
+              </a>
+            </Nav.Item>
+          </Nav>
+        </NavbarBs.Collapse>
 
         <Button
           onClick={() => navigate("/cart")}

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import "../css/homepage.css";
-import { Container } from "react-bootstrap";
 
 const HomePage = () => {
   return (
-    <Container fluid>
+    <div>
       <div className=" home-hero d-flex justify-content-center align-items-center text-center px-0 mt-5">
         <div className="hero-content">
           <h1 className="display-4">Welcome to Josh's Funky Shop</h1>
@@ -20,7 +19,7 @@ const HomePage = () => {
           </Link>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
