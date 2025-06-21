@@ -1,5 +1,5 @@
 .home-hero {
-  height: 100vh;
+  height: calc(100vh - 56px);
   width: 100%;
   background-image: url("../1images/hero1.jpg");
   background-size: cover;
@@ -11,7 +11,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -57,7 +56,6 @@
   font-weight: 500;
   line-height: 1.4;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-  margin-bottom: 3rem;
 }
 
 .hero-btn {

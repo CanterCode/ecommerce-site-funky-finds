@@ -23,7 +23,6 @@ const fetchProducts = async (category?: string): Promise<Product[]> => {
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  // Fetch categories once
   const {
     data: categories = [],
     isLoading: loadingCategories,
@@ -33,7 +32,6 @@ const ProductsPage = () => {
     queryFn: fetchCategories,
   });
 
-  // Fetch products based on selectedCategory
   const {
     data: products = [],
     isLoading: loadingProducts,

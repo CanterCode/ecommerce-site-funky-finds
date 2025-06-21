@@ -10,7 +10,7 @@ const NavigationBar = () => {
   const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <NavbarBs fixed="top" expand="md" className="bg-white shadow-sm mb-3 px-4">
+    <NavbarBs fixed="top" expand="md" className="bg-white shadow-sm px-4">
       <Container
         fluid
         className="d-flex align-items-center justify-content-between"

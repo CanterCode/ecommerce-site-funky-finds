@@ -37,17 +37,17 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.btn-funky {
-  background-color: #ff4081;
-  color: white;
-  border: none;
+button.btn-funky {
+  background-color: #ff4081 !important;
+  color: white !important;
+  border: none !important;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
-.btn-funky:hover {
-  background-color: #e73370;
-  color: white;
+button.btn-funky:hover {
+  background-color: #e73370 !important;
+  color: white !important;
 }
 
 .cart-item-card {

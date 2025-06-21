@@ -4,7 +4,7 @@ import CartItemCard from "../components/CartItemCard";
 import { clearCart } from "../redux/cartSlice";
 import CheckoutModal from "../components/CheckoutModal";
 import { useState } from "react";
-import "../css/cart.css"; // Create or update this if needed
+import "../css/cart.css";
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);

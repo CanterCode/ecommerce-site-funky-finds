@@ -1,5 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
-import "../css/cart.css"; // or wherever you keep modal styles
+import "../css/cart.css";
 
 type Props = {
   show: boolean;

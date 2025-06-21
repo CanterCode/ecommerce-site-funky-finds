@@ -23,7 +23,6 @@ const CartItemCard = ({ product, quantity }: Props) => {
   return (
     <Card className="cart-item-card shadow-sm border-0 p-3 rounded-4">
       <div className="d-flex flex-column flex-md-row align-items-center gap-3">
-        {/* Image */}
         <Image
           src={product.image}
           alt={product.title}
@@ -31,7 +30,6 @@ const CartItemCard = ({ product, quantity }: Props) => {
           className="bg-white p-2 rounded"
         />
 
-        {/* Title + Qty controls */}
         <div className="flex-grow-1 text-center text-md-start">
           <h6 className="fw-bold mb-1">{product.title.split(" ").slice(0, 6).join(" ")}</h6>
           <div className="d-flex align-items-center justify-content-center justify-content-md-start gap-2">
@@ -55,7 +53,6 @@ const CartItemCard = ({ product, quantity }: Props) => {
           </div>
         </div>
 
-        {/* Price + remove */}
         <div className="text-center text-md-end">
           <div className="text-muted small mb-2">
             ${product.price.toFixed(2)} × {quantity} ={" "}

@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# Funky Finds — Advanced React E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of my journey with the **Coding Temple Software Engineering Front-End Specialization**. It’s a fun, funky little e-commerce site built with React, TypeScript, Redux Toolkit, and React Query — basically a playground to practice some solid front-end skills with real-world tools.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React + TypeScript** — typed, component-driven UI
+- **Redux Toolkit** — to manage cart state easily and cleanly
+- **React Query** — for smooth, declarative data fetching and caching
+- **React Router** — navigating between pages
+- **Bootstrap** — for quick, responsive styling
+- **FakeStoreAPI** — my source for products and categories
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## How to Run It Locally
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repo:
+    ```bash
+    git clone https://github.com/CanterCode/ecommerce-site-funky-finds.git
+    cd ecommerce-site-funky-finds
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Install the dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. Start the dev server:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+4. Open your browser to the URL shown (usually http://localhost:5173).
+
+---
+
+## What You Can Do
+
+- Browse all products right on the homepage.
+- Use the category dropdown to filter products dynamically.
+- Add items to your cart directly from the product list.
+- Click the cart icon to see what’s inside, update quantities, or remove items.
+- Checkout to clear your cart and get a confirmation popup.
+- The cart state sticks around thanks to session storage — so no surprises when you reload!
+
+---
+
+## Final Thoughts
+
+This project was a great way for me to put together some important React ecosystem tools and get comfortable with Redux Toolkit and React Query. Plus, working with an API like FakeStoreAPI made it feel more like a real world project and less like a “toy."

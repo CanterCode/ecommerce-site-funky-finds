@@ -4,7 +4,7 @@ import "../css/homepage.css";
 const HomePage = () => {
   return (
     <div>
-      <div className=" home-hero d-flex justify-content-center align-items-center text-center px-0 mt-5">
+      <div className=" home-hero d-flex justify-content-center align-items-center text-center px-0">
         <div className="hero-content">
           <h1 className="display-4">Welcome to Josh's Funky Shop</h1>
           <h3 className="lead">
