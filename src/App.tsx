@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ViewProducts from "./pages/ViewProducts";
 import Cart from "./pages/Cart";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar.tsx";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./redux/Store";
