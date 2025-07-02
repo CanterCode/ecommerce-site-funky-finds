@@ -31,7 +31,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/user-profile" element={<UserProfile />} />
         </Routes>
       </main>
 

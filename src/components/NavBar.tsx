@@ -1,14 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../redux/Store";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { items } = useSelector((state: RootState) => state.cart);
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
   const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleLogout = async () => {
+    await auth.signOut();
+    dispatch(clearUser());
+    alert("See you later!");
+    navigate("/");
+  };
 
   return (
     <NavbarBs fixed="top" expand="md" className="bg-white shadow-sm px-4">
@@ -46,7 +54,7 @@ const NavigationBar = () => {
           {isLoggedIn ? (
             <Button
               variant="outline-secondary"
-              onClick={() => navigate("/userprofile")}
+              onClick={() => navigate("/user-profile")}
             >
               Profile
             </Button>

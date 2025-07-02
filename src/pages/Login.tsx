@@ -3,27 +3,49 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/FirebaseConfig";
 import { useNavigate, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/authSlice";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/FirebaseConfig";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/user-info");
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unknown error occurred.");
-      }
+  e.preventDefault();
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      dispatch(setUser({
+        uid: user.uid,
+        email: user.email ?? userData.email ?? "",
+        firstName: userData.firstName ?? "",
+        lastName: userData.lastName ?? "",
+        address: userData.address ?? ""
+      }));
+      dispatch(setUser({
+        uid: user.uid,
+        email: user.email ?? userData.email ?? "",
+        firstName: userData.firstName ?? "",
+        lastName: userData.lastName ?? "",
+        address: userData.address ?? ""
+      }));
     }
-  };
+
+    navigate("/user-profile");
+  } catch (err: unknown) {
+    setError(err instanceof Error ? err.message : "An unknown error occurred.");
+  }
+};
 
   return (
     <div className="container mt-5" style={{ maxWidth: "600px" }}>
