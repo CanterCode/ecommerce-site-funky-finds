@@ -7,6 +7,11 @@ import Navbar from "./components/NavBar.tsx";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./redux/Store";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import UserProfile from "./pages/UserProfile";
+import "./css/products.css"
+
 
 function App() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -24,6 +29,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ViewProducts />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/userprofile" element={<UserProfile />} />
         </Routes>
       </main>
 
