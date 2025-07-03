@@ -8,33 +8,24 @@ This project is part of my journey with the **Coding Temple Software Engineering
 
 This project has been extended to include Firebase Authentication and Firestore functionality:
 
----
-
 ### 🔐 Authentication
 - Users can register, log in, log out, and delete their accounts.
 - Session persists on page refresh.
-
----
 
 ### 👤 User Profile
 - Each user has a profile stored in Firestore (`users/{uid}`).
 - Users can update their name and address.
 - Delete Profile button removes both the Firestore document and Auth account.
 
----
-
 ### 🛒 Orders
 - When users check out, orders are saved to `users/{uid}/orders/{orderId}`.
 - The profile page displays previous orders.
 - Each order links to a View Order page with item details and total.
 
----
-
 ### 📦 Firestore Products
 - Logged-in users can create, update, and delete products in the `firestoreProducts` collection.
 - Products are managed through a form and editable list on the Firestore Products page.
 
----
 
 ## Tech Stack
 
