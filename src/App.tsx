@@ -11,9 +11,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UserProfile from "./pages/UserProfile";
 import "./css/products.css"
+import { useAuthListener } from "./firebase/useAuthListener.ts";
 
 
 function App() {
+
+  useAuthListener();
+
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
   useEffect(() => {

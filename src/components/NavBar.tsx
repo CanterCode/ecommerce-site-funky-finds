@@ -3,6 +3,10 @@ import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../redux/Store";
+import { clearUser } from "../redux/authSlice";
+import { auth } from "../firebase/FirebaseConfig";
+
+
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -50,6 +54,15 @@ const NavigationBar = () => {
           </Nav>
         </NavbarBs.Collapse>
 
+         {isLoggedIn && (
+              <Button
+                variant="outline-danger"
+                className="rounded-pill px-3"
+                onClick={handleLogout}
+              >
+                Log Out
+              </Button>)}
+        
         <div className="d-flex align-items-center gap-3">
           {isLoggedIn ? (
             <Button
