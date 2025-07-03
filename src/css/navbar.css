@@ -1,0 +1,65 @@
+.btn-funky-outline {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* Cart button base */
+.navbar-cart-btn {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+
+/* Badge styling for cart count */
+.navbar-cart-badge {
+  color: white;
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(25%, 25%);
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #dc3545; /* bootstrap danger red */
+}
+
+.navbar-cart-btn svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 576px) {
+  .btn-funky-outline {
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0.6rem !important;
+  }
+
+  .navbar-cart-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+.navbar-cart-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+  .navbar-buttons {
+    margin-top: 5px;
+  }
+
+  .navbar-cart-badge {
+    width: 0.9rem !important;
+    height: 0.9rem !important;
+    font-size: 0.6rem !important;
+  }
+}

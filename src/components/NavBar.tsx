@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../redux/Store";
 import { clearUser } from "../redux/authSlice";
 import { auth } from "../firebase/FirebaseConfig";
-
-
+import "../css/navbar.css";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -54,36 +53,68 @@ const NavigationBar = () => {
           </Nav>
         </NavbarBs.Collapse>
 
-         {isLoggedIn && (
-              <Button
-                variant="outline-danger"
-                className="rounded-pill px-3"
-                onClick={handleLogout}
-              >
-                Log Out
-              </Button>)}
-        
-        <div className="d-flex align-items-center gap-3">
+        {isLoggedIn && (
+          <Button
+            variant="outline-secondary"
+            className="rounded-pill btn-funky-outline me-2"
+            onClick={() => navigate("/firestore-products")}
+          >
+            Firestore Products
+          </Button>
+        )}
+
+        <div className="d-flex align-items-center gap-2 navbar-buttons">
+          {isLoggedIn && (
+            <Button
+              variant="outline-danger"
+              className="rounded-pill px-4 btn-funky-outline"
+              onClick={handleLogout}
+              style={{
+                fontWeight: 700,
+                fontSize: "1rem",
+                padding: "0.5rem 1.2rem",
+              }}
+            >
+              Log Out
+            </Button>
+          )}
           {isLoggedIn ? (
             <Button
               variant="outline-secondary"
+              className="rounded-pill btn-funky-outline"
               onClick={() => navigate("/user-profile")}
+              style={{
+                fontWeight: 700,
+                fontSize: "1rem",
+                padding: "0.5rem 1.2rem",
+              }}
             >
               Profile
             </Button>
           ) : (
             <Button
               variant="outline-secondary"
+              className="rounded-pill btn-funky-outline"
               onClick={() => navigate("/login")}
+              style={{
+                fontWeight: 700,
+                fontSize: "1rem",
+                padding: "0.5rem 1.2rem",
+              }}
             >
               Login
             </Button>
           )}
+
           <Button
             onClick={() => navigate("/cart")}
-            style={{ width: "3rem", height: "3rem", position: "relative" }}
             variant="outline-primary"
-            className="rounded-circle"
+            className="rounded-circle navbar-cart-btn"
+            style={{
+              width: "3rem",
+              height: "3rem",
+              position: "relative",
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +125,7 @@ const NavigationBar = () => {
             </svg>
 
             <div
-              className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+              className="rounded-circle bg-danger d-flex justify-content-center align-items-center navbar-cart-badge"
               style={{
                 color: "white",
                 width: "1.2rem",
@@ -103,6 +134,8 @@ const NavigationBar = () => {
                 bottom: 0,
                 right: 0,
                 transform: "translate(25%, 25%)",
+                fontWeight: 700,
+                fontSize: "0.8rem",
               }}
             >
               {totalQuantity}

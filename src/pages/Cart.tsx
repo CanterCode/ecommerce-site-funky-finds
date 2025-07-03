@@ -5,6 +5,8 @@ import { clearCart } from "../redux/cartSlice";
 import CheckoutModal from "../components/CheckoutModal";
 import { useState } from "react";
 import "../css/cart.css";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db, auth } from "../firebase/FirebaseConfig";
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
@@ -17,9 +19,27 @@ const Cart = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleCheckout = () => {
-    setShowModal(true);
-    dispatch(clearCart());
+  const handleCheckout = async () => {
+    const user = auth.currentUser;
+    if (!user) {
+      alert("You must be logged in to checkout.");
+      return;
+    }
+
+    const orderData = {
+      items,
+      total: totalPrice,
+      createdAt: serverTimestamp(),
+    };
+
+    try {
+      await addDoc(collection(db, "users", user.uid, "orders"), orderData);
+      dispatch(clearCart());
+      setShowModal(true);
+    } catch (error) {
+      console.error("Failed to save order:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (

@@ -12,6 +12,8 @@ import Register from "./pages/Register";
 import UserProfile from "./pages/UserProfile";
 import "./css/products.css"
 import { useAuthListener } from "./firebase/useAuthListener.ts";
+import ViewOrder from "./pages/ViewOrder.tsx";
+import FirestoreProducts from "./pages/FirestoreProducts.tsx";
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/view-order/:orderId" element={<ViewOrder />} />
+          <Route path="firestore-products" element={<FirestoreProducts />} />
         </Routes>
       </main>
 
