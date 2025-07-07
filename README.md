@@ -71,6 +71,66 @@ This project has been extended to include Firebase Authentication and Firestore 
 
 ---
 
+## 🚀 Deployment & Testing Overview
+
+### 🌐 Live Site  
+Visit the deployed app here:  
+🔗 [https://ecommerce-site-funky-finds.vercel.app/](https://ecommerce-site-funky-finds.vercel.app/)
+
+---
+
+## ✅ CI/CD with GitHub Actions + Vercel
+
+This project uses a **combined Continuous Integration and Deployment (CI/CD)** workflow powered by **GitHub Actions** and **Vercel**.
+
+### 🔧 Continuous Integration (CI)
+- Automatically triggered on every push or pull request to the `main` branch.
+- Runs a full test suite using **Jest** and **React Testing Library**.
+- If any tests fail, the pipeline will **fail immediately** and **prevent deployment**.
+
+### 🚀 Continuous Deployment (CD)
+- If tests pass, the app is **automatically deployed** to Vercel using the **Vercel CLI**.
+- Ensures that only verified, working code is pushed to production.
+- Redundant or separate deploy workflows (e.g., `deploy.yml`) have been removed to maintain a clean CI/CD pipeline.
+
+---
+
+## 🧪 Tests Included
+
+This project includes the following unit and integration tests:
+
+### 1. Register Form Validation (Unit Test)
+- Validates form input rules including:
+  - Required field handling
+  - Password mismatch logic
+  - Displaying error messages
+
+### 2. Navbar Rendering (Unit Test)
+- Ensures proper rendering of navigation elements:
+  - Logo, links, and user state-driven UI behavior
+
+### 3. Cart Integration Test
+- Full integration test covering:
+  - Adding a product to cart
+  - Updating quantity via "+" and "-" buttons
+  - Removing the item from the cart
+  - Verifying UI reflects Redux state accurately at each step
+
+These tests are automatically triggered by the GitHub Actions pipeline and must pass before code is deployed.
+
+---
+
+## 📦 Tech Stack
+- React + TypeScript
+- Redux Toolkit
+- Firebase (Auth + Firestore)
+- React Bootstrap
+- Vercel for deployment
+- GitHub Actions for CI/CD
+
+
+---
+
 ## Final Thoughts
 
 This project was a great way for me to put together some important React ecosystem tools and get comfortable with Redux Toolkit and React Query. Plus, working with an API like FakeStoreAPI made it feel more like a real world project and less like a “toy."
